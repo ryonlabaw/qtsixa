@@ -198,9 +198,10 @@ void l2cap_accept(int ctl, int csk, int isk, int debug, int legacy)
 
     if (bacmp(&addr_dst, &addr.l2_bdaddr)) {
         syslog(LOG_ERR, "intr and ctrl streams from different hosts - rejecting both");
-        close(ctrl_socket);
-        close(intr_socket);
-        return;
+        //close(ctrl_socket);
+        //close(intr_socket);
+        //return;
+        syslong(LOG_ERR,"...attempting to continue, regardless... works for my controller...");
     }
 
     req.vendor  = 0x054c;
